@@ -1,11 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import './index.css';
 
-/* istanbul ignore next */
+const Routes = () => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Routes />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
